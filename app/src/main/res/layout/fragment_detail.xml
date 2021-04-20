@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical"
+    tools:context=".DetailFragment">
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tituloFragment"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:padding="5dp"
+        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivFotoFragment"
+        android:layout_width="match_parent"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_weight="0.3"
+        android:layout_height="0dp" />
+    <TextView
+        android:text="@string/desc"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="5dp"
+        android:layout_weight="0.4">
+        <TextView
+            android:id="@+id/tvDescripcionFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="texto"/>
+    </ScrollView>
+</LinearLayout>

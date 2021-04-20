@@ -1,0 +1,98 @@
+[
+    {
+        "id":0,
+        "titulo":"Antman",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/antman.jpg"
+    },
+    {
+        "id":1,
+        "titulo":"Antman y Avisap",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/antmanwasp.jpg"
+    },
+    {
+        "id":2,
+        "titulo":"Los Vengadores",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/avengers.jpg"
+    },
+    {
+        "id":3,
+        "titulo":"Capitana Marvel",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/capitanamarvel.jpg"
+    },
+    {
+        "id":4,
+        "titulo":"Thor: Mundo Oscuro",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/darkworld.jpg"
+    },
+    {
+        "id":5,
+        "titulo":"Avengers: endgame",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/endgame.jpg"
+    },
+    {
+        "id":6,
+        "titulo":"Avengers: Era de ultron",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/eradeultron.jpg"
+    },
+    {
+        "id":7,
+        "titulo":"Guardianes de la Galaxia Vol1",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/guardianes1.jpg"
+    },
+    {
+        "id":8,
+        "titulo":"Guardianes de la Galaxia Vol2",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/guardianes2.jpg"
+    },
+    {
+        "id":9,
+        "titulo":"Spiderman: Home coming",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/homcoming.jpg"
+    },
+    {
+        "id":10,
+        "titulo":"Avengers: Infinitywar",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/infinitywar.jpg"
+    },
+    {
+        "id":11,
+        "titulo":"Ironman 3",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/ironman3.jpg"
+    },
+    {
+        "id":12,
+        "titulo":"Black Panther",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/panteranegra.jpg"
+    },
+    {
+        "id":13,
+        "titulo":"Thor Ragnarok",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/ragnarok.jpg"
+    },
+    {
+        "id":14,
+        "titulo":"Spiderman: Lejos de casa",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/spidermanlejoscasa.jpg"
+    },
+    {
+        "id":15,
+        "titulo":"Capitan America: Soldado de Invierno",
+        "descripcion":"Poner aquí descripción",
+        "imagen":"https://webcarlos.com/fotosmarvel/winersoldier.jpg"
+    }
+]
