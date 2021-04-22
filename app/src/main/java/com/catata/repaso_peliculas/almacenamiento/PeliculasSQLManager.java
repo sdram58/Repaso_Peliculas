@@ -12,7 +12,7 @@ import com.catata.repaso_peliculas.model.Pelicula;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PeliculasSQLManager implements AlmacenamientoPeliculas {
+public class PeliculasSQLManager {
 
     public static PeliculasDBHelper peliculasDBHelper;
 
@@ -36,7 +36,7 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
     }
 
 
-    @Override
+
     public List<Pelicula> getAllFilms() {
         PeliculasDBHelper dbHelper = getInstance();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -83,7 +83,6 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
         return peliculas;
     }
 
-    @Override
     public Pelicula getFilmById(int id) {
         PeliculasDBHelper dbHelper = getInstance();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -136,7 +135,6 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
 
     }
 
-    @Override
     public boolean delFilm(Pelicula p) {
         PeliculasDBHelper dbHelper = getInstance();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -153,8 +151,7 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
         return a > 0;
     }
 
-    @Override
-    public Pelicula updateFilm(Pelicula p) {
+     public Pelicula updateFilm(Pelicula p) {
         PeliculasDBHelper dbHelper = getInstance();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -182,7 +179,6 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
         }
     }
 
-    @Override
     public boolean addFilm(Pelicula p) {
         PeliculasDBHelper dbHelper = getInstance();
 
@@ -206,4 +202,5 @@ public class PeliculasSQLManager implements AlmacenamientoPeliculas {
             return newRowId > 0;
         }
     }
+
 }

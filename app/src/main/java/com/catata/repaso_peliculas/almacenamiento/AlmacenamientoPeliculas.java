@@ -1,18 +1,43 @@
 package com.catata.repaso_peliculas.almacenamiento;
 
+import android.content.Context;
+import android.os.AsyncTask;
+
 import com.catata.repaso_peliculas.model.Pelicula;
 
 import java.util.List;
 
-public interface AlmacenamientoPeliculas {
+public abstract class AlmacenamientoPeliculas extends AsyncTask<Object,Object,Object>{
 
-    public List<Pelicula> getAllFilms();
+    TaskCompleted listener;
 
-    public Pelicula getFilmById(int id);
+    public enum OPCION {
+            GET_ALL,
+            ADD,
+            REMOVE,
+            UPDATE,
+            GET_BY_ID
+    }
 
-    public boolean delFilm(Pelicula p);
+    AlmacenamientoPeliculas(TaskCompleted listener){
+        this.listener = listener;
+    }
 
-    public Pelicula updateFilm(Pelicula p);
+    public abstract List<Pelicula> getAllFilms();
 
-    public boolean addFilm(Pelicula p);
+    public abstract Pelicula getFilmById(int id);
+
+    public abstract boolean delFilm(Pelicula p);
+
+    public abstract Pelicula updateFilm(Pelicula p);
+
+    public abstract boolean addFilm(Pelicula p);
+
+    public interface TaskCompleted{
+        void onTaskCompletedAdd(boolean res);
+        void onTaskCompletedGetByID(Pelicula p);
+        void onTaskCompletedDelete(boolean res);
+        void onTaskCompletedUpdate(Pelicula p);
+        void onTaskCompletedGetAll(List<Pelicula> peliculas);
+    }
 }

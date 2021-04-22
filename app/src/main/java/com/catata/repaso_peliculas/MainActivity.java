@@ -21,10 +21,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.catata.repaso_peliculas.almacenamiento.AlmacenamientoPeliculas;
+import com.catata.repaso_peliculas.almacenamiento.PeliculasManagerAsync;
 import com.catata.repaso_peliculas.almacenamiento.PeliculasSQLManager;
 import com.catata.repaso_peliculas.model.GestorPeliculas;
 import com.catata.repaso_peliculas.model.Pelicula;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnTouchListener {
@@ -116,22 +118,68 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     class MyAdapater extends RecyclerView.Adapter<MyAdapater.ViewHolder> implements View.OnClickListener {
 
         List<Pelicula> peliculas;
+        AlmacenamientoPeliculas.TaskCompleted listener;
 
         AlmacenamientoPeliculas almacenamientoPeliculas;
         public MyAdapater() {
             super();
-            almacenamientoPeliculas = new PeliculasSQLManager(MainActivity.this);
+            this.peliculas = new ArrayList<Pelicula>();
+            listener = new AlmacenamientoPeliculas.TaskCompleted() {
 
-            peliculas = almacenamientoPeliculas.getAllFilms();
-
-            if(peliculas.size()<=0){
-                peliculas = GestorPeliculas.loadPeliculas(MainActivity.this);
-
-                for (Pelicula p: peliculas) {
-                    almacenamientoPeliculas.addFilm(p);
+                @Override
+                public void onTaskCompletedAdd(boolean res) {
+                    if(res) Log.i(DEBUG_TAG,"Added!");
+                    else Log.i(DEBUG_TAG,"Error Adding!");
                 }
+
+                @Override
+                public void onTaskCompletedGetByID(Pelicula p) {
+
+                }
+
+                @Override
+                public void onTaskCompletedDelete(boolean res) {
+                    if(res) notifyDataSetChanged();
+                    else Log.i(DEBUG_TAG,"Error Updating");
+                }
+
+                @Override
+                public void onTaskCompletedUpdate(Pelicula p) {
+
+                }
+
+                @Override
+                public void onTaskCompletedGetAll(List<Pelicula> p) {
+
+
+                    if(p.size()<=0){
+                        updatePeliculas(GestorPeliculas.loadPeliculas(MainActivity.this));
+
+                        for (Pelicula peli: peliculas) {
+                            almacenamientoPeliculas.execute(AlmacenamientoPeliculas.OPCION.ADD,peli);
+                        }
+                    }else{
+                        updatePeliculas(p);
+                    }
+                }
+            };
+
+            almacenamientoPeliculas = new PeliculasManagerAsync(MainActivity.this, listener);
+
+            almacenamientoPeliculas.execute(AlmacenamientoPeliculas.OPCION.GET_ALL);
+
+
+        }
+
+        public void updatePeliculas(List<Pelicula> mPeliculas){
+            if(this.peliculas!=null) this.peliculas.clear();
+            else this.peliculas = new ArrayList<Pelicula>();
+
+            for (Pelicula p: mPeliculas) {
+                this.peliculas.add(p);
             }
 
+            notifyDataSetChanged();
         }
 
         @NonNull
@@ -148,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            Pelicula p = GestorPeliculas.PELICULAS.get(position);
+            Pelicula p = this.peliculas.get(position);
             holder.itemView.setTag(p);
             holder.itemView.setOnClickListener(this);
 
@@ -160,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
         @Override
         public int getItemCount() {
-            return peliculas.size();
+            return this.peliculas.size();
         }
 
         @Override
